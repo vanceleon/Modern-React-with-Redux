@@ -1,16 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import CommentDetail from './components/CommentDetail';
+import CommentDetail from "./components/CommentDetail";
+import ApprovalCard from "./components/ApprovalCard";
 
-const App = () => {
-  return (
-    <div className="ui container comments">
-      <CommentDetail/>
+class App extends Component {
+  state = {
+    author: "Vance",
+    time: "Today at 6:00pm",
+  };
 
+  render() {
+    return (
+      <div className="ui container comments">
+          <ApprovalCard/>
+        <CommentDetail author={this.state.author} time={this.state.time} />
 
-
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(<App />, document.querySelector("#root"));
